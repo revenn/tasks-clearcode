@@ -1,26 +1,11 @@
 #!/usr/bin/python
 
-
-#sprawdz czy na poczatku jest 'fe' i na koncu 'ai'
-#kazda litera nie bedaca pod-zakleciem zmiejsza obrazenia o 1
-#wybieramy zawsze najwyzej punktowane pod-zaklecie
-#metoda zwraca 0 jesli zaklecie niepoprawne lub obrazenia ujemne
-#dla wiekszej ilosci fe lub ai zwroc 0
-
-#nowy podstring juz bez fe i ai
-#po kolei usuwamy z niego kolejne znalezione podzaklecie
-#az zadnego nie bd i potem liczymy ile zostalo liter i odejmujemy od damage
-
 fe=1
-
 je=2
 jee=3
-
-ain=3 #H
-dai=5 #H
-
+ain=3
+dai=5
 ne=2
-
 ai=2
 
 def damage(spell):
@@ -75,6 +60,7 @@ def damage(spell):
                 damage += ne
                 not_used=not_used[0:not_used.find('ne')]+not_used[not_used.find('ne')+2:]
 
+        # remove from damage mistakenly putted letters
         damage -= len(not_used)
 
         if damage < 0:
